@@ -71,7 +71,7 @@ public class UserController {
 
     //=====================================================================================
 
-    @RequestMapping(value = "/newUse", method = RequestMethod.GET)
+    @RequestMapping(value = "/newUser", method = RequestMethod.GET)
     public ModelAndView newUser(ModelAndView model) {
         User user = new User();
         model.addObject("user", user);

@@ -19,38 +19,38 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//@Repository
-//public class UserDAOImplement implements UserDAO {
+@Repository
+public class UserDAOImplement implements UserDAO {
 
-//    @Autowired
-//    private SessionFactory sessionFactory;
-//
-//
-//    public void addUser(User user) {
-//        sessionFactory.getCurrentSession().saveOrUpdate(user);
-//    }
-//
-//    @SuppressWarnings("unchecked")
-//    public List<User> getAllUsers() {
-//        return sessionFactory.getCurrentSession().createQuery("from User").list();
-//    }
-//
-//    @Override
-//    public void deleteUser(Integer userId) {
-//        User user = (User) sessionFactory.getCurrentSession().load(User.class, userId);
-//        if (null != user){
-//            this.sessionFactory.getCurrentSession().delete(user);
-//        }
-//    }
-//
-//    @Override
-//    public User updateUser(User user) {
-//        sessionFactory.getCurrentSession().update(user);
-//        return user;
-//    }
-//
-//
-//    public User getUser(int userid) {
-//        return (User) sessionFactory.getCurrentSession().get(User.class, userid);
-//    }
-//}
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
+    public void addUser(User user) {
+        sessionFactory.getCurrentSession().saveOrUpdate(user);
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<User> getAllUsers() {
+        return sessionFactory.getCurrentSession().createQuery("from User").list();
+    }
+
+    @Override
+    public void deleteUser(Integer userId) {
+        User user = (User) sessionFactory.getCurrentSession().load(User.class, userId);
+        if (null != user){
+            this.sessionFactory.getCurrentSession().delete(user);
+        }
+    }
+
+    @Override
+    public User updateUser(User user) {
+        sessionFactory.getCurrentSession().update(user);
+        return user;
+    }
+
+
+    public User getUser(int userid) {
+        return (User) sessionFactory.getCurrentSession().get(User.class, userid);
+    }
+}

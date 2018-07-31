@@ -54,33 +54,33 @@
 
     <!-- Hibernate SessionFactory
     org.springframework.orm.hibernate4.LocalSessionFactoryBean-->
-    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
-        <!--<property name="dataSource" ref="dataSource"></property>-->
-        <!--<property name="hibernateProperties">-->
-            <!--<props>-->
-                <!--<prop key="hibernate.dialect">${hibernate.dialect}</prop>-->
-                <!--<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>-->
-                <!--<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>-->
-                <!--<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>-->
-            <!--</props>-->
-        <!--</property>-->
-        <!--<property name="packagesToScan" value="com.hsm.model"></property>-->
-    <!--</bean>-->
-
-    <!--&lt;!&ndash; Transaction&ndash;&gt;-->
-    <!--<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
-        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
-    <!--</bean>-->
-
-
-
-
-
-    <!-- JDBC Template bean-->
-    <bean id="userJDBCTemplate" class="com.hsm.dao.mysql.UserDAOSql">
-        <property name="dataSource" ref="dataSource"/>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.hsm.model"></property>
     </bean>
 
-    <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
+    <!-- Transaction-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+
+
+
+    <!--&lt;!&ndash; JDBC Template bean&ndash;&gt;-->
+    <!--<bean id="userJDBCTemplate" class="com.hsm.dao.UserDAOImplement">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>
